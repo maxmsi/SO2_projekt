@@ -29,8 +29,8 @@
             double dir  = this->direction;
 
 
-                    if (tmpX + angleX > xsize +dir) {
-                        tmpX = xsize +dir;
+                    if (tmpX + angleX > xsize -2) {
+                        tmpX = xsize -2;
 		        angleX = -angleX;
 		    }
 		    
@@ -45,8 +45,8 @@
 		    }
 
 		    
-                    if (tmpY + angleY > ysize + 1) {
-                        tmpY = ysize + 1;
+                    if (tmpY + angleY > ysize - 2) {
+                        tmpY = ysize - 2;
                         angleY = -angleY;
 		    }
 		   
