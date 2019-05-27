@@ -1,0 +1,53 @@
+void ballThreadFunction(int BallId){
+
+    while(Runs){
+        usleep(89500);
+        balls.ballsInWindow[BallId].ballNextPos();
+
+         if(balls.ballsInWindow[BallId].atFirstStep && balls.lockedBallAtFirst==false){
+             mu.lock();
+            balls.lockedBallAtFirst=true;
+
+        }
+         if(balls.ballsInWindow[BallId].atSecondStep && balls.lockedBallAtSecond==false){
+                mu.lock();
+                balls.lockedBallAtSecond=true;
+
+        }
+         if(balls.ballsInWindow[BallId].atThirdStep && ! balls.lockedBallAtThird==false){
+             mu.lock();
+             balls.lockedBallAtThird=true;
+         }
+
+
+
+
+
+
+
+
+
+
+        if(balls.ballsInWindow[BallId].atThirdStep==true){
+                if(balls.lockedBallAtThird==false){
+                  mu3.lock();
+                  balls.lockedBallAtThird=true;
+                }
+        }
+
+
+        if(balls.ballsInWindow[BallId].atSecondStep==true){
+                if(balls.lockedBallAtSecond==false){
+                  mu2.lock();
+                  balls.lockedBallAtSecond=true;
+                }
+        }
+
+
+        if(balls.ballsInWindow[BallId].atFirstStep==true){
+                  mu1.lock();
+        }
+
+
+
+   
